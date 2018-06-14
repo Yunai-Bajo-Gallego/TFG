@@ -1,0 +1,14 @@
+2018-06-07 19:57:53,246 INFO  [Thread-68672] agent.EPlusAgent  (   ) - Job case-88-SemiRandom-DISMINUYE PARAM=5-DISMINUYE PARAM=3-DISMINUYE PARAM=4-AUMENTA PARAM=6 started. 0 more to go!
+2018-06-07 19:57:53,447 INFO  [Thread-68672] agent.EPlusAgent  (   ) - Nearly there ...
+2018-06-07 19:57:57,251 INFO  [Thread-68672] agent.EPlusAgent  (   ) - Local batch simulation controller is FINISHED [Que=0, Run=0, Fin=1]
+2018-06-07 19:57:57,251 INFO  [Thread-68672] agent.EPlusAgent  (   ) - Local agent stopped. 
+2018-06-07 19:57:57,251 INFO  [Thread-68672] agent.EPlusAgent  (   ) - Collecting results ...
+2018-06-07 19:57:57,261 INFO  [Thread-68672] agent.EPlusAgent  (   ) - Standard RVI result collector collected 1 simulation reports in C:\Users\yunai\Desktop\TFG\jEPlus_v1.5.2\example_1-params_E+v8.1\output\RunTimes.csv
+2018-06-07 19:57:57,271 INFO  [Thread-68672] agent.EPlusAgent  (   ) - Standard RVI result collector collected job index table in C:\Users\yunai\Desktop\TFG\jEPlus_v1.5.2\example_1-params_E+v8.1\output\SimJobIndex.csv
+2018-06-07 19:57:57,328 INFO  [Thread-68672] agent.EPlusAgent  (   ) - ESO result collector collected 2 rows of simulation results in SimResults.csv 
+2018-06-07 19:57:57,339 INFO  [Thread-68672] agent.EPlusAgent  (   ) - Combined result table AllCombinedResults.csv is created.
+2018-06-07 19:57:57,346 INFO  [Thread-68672] agent.EPlusAgent  (   ) - Derivative result table AllDerivedResults.csv is created.
+2018-06-07 19:57:57,346 INFO  [Thread-68672] agent.EPlusAgent  (   ) - All done!
+2018-06-07 19:57:57,346 INFO  [Thread-68672] agent.EPlusAgent  (   ) - Simulation finished at: jue, 7 jun 2018 19:57:57
+2018-06-07 19:57:57,346 INFO  [Thread-68672] agent.EPlusAgent  (   ) - Total execution time = 4 seconds.
+
