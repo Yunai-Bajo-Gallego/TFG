@@ -1,0 +1,90 @@
+1/10
+
+Descargado Energyplus, JEplus, proyectos ejemplos y codigo fuente.
+
+		0) Ver proyecto ejemplo	
+Siguente paso: 1)obtener libreria|comando consola que me deja acceder a jeplus desde java. 
+		2)Ver métodos que puedo usar y qué hacen.
+
+8/10
+
+Visto como organiza la interfaz, que opciones tiene y cómo hay que usarla. (por encima)
+
+29/10
+
+Leidos cap 3 y 4. Tras ejecutar todo deben salir 3 excel como resultados.
+
+5/11
+
+Leido cap 5. Parece que solo sirve para saber como extraer los resultados con el formato que queramos.
+Ledio cap 6. Es el capítulo del video. Explica la ejecución, y que se guarda en cada archivo de resultados
+
+8/12
+Leido cap 7 y 8 y 9.
+Sys.argv[1] - project's base folder where the project files (e.g. project.jep) are located
+Sys.argv[2] - folder of the current case where in.idf (or in.dck and so forth) is located
+Sys.argv[3] - Other arguments specified in the parameter definition, as a ',' delimited string
+Sys.argv[4] - The location of the binary files of the simulation program, e.g. the location of Energy+.idd. This argument is only relevant with EnergyPlus simulations
+EL 9 Habla de los comandos en la ventana de comandos sobre JEPLUS.
+
+
+24/12
+
+Hay que tener la versión de energy plus que corresponda a cada proyecto. Solucionado el error al descagar la versión 8.1.
+Ejecutado "example_jep" y tras 15 min obtenemos una carpeta con los siguientes resultados:
+
+	-408 carpetas (Una por cada trabajo)(En principio no deberían hacer falta)(Además de muchos archivos raros contiene los "simResult.csv" para cada trabajo (En este ejemplo están vacios))
+	-5 excels con la siguiente info:
+		-"RunTimes": #, Job_ID, Message, Warnings, Errors, Hours, Minutes, Seconds (En principio no hace falta)
+		-"AllDerivedResults": Vacio en este ejemplo.
+		-"SimResults": Vacio en este ejemplo. (En principio no hace falta)
+		-"SimJobIndex": #, Job_ID, WeatherFile, ModelFile, @@orientation@@, @@Outside_Air@@
+		-"AllCombinedResults": Igual que el de arriba + Message, Warnings, Errors, Hours, Minutes, Seconds.(Este contiene todo de todos los trabajos) (Cada trabajo consiste en cada una de las posibles combinaciones de los parámetros entrada o en cada posible solución. Aún no sé)
+
+Siguiente paso: 
+	Ver si "AllCombinedResults" contiene las posibles entradas o las posibles soluciones.--> (ENTRADAS)
+	Ejecutar con código y ver que hay en la Tabla Hash.(Releer cap 9)
+
+15/1
+
+Los excel del output da info de las entradas. Las salidas están en cada uno de los jobs.
+Los jobs contienen una fila correspondiente al avance del día cada 15 minutos. (98 filas)
+Y una columna por cada elemento que se tiene en cuenta (No sé si valor deseado o el probable)
+Entiendo el código. Aunque la tabla hash sigue sin ir. Creo que por la ruta.
+
+3/2
+Tras ensayo y error vemos que con version 1.5.2 y con archivos rvi sí obtenemos salidas en "SimResults". 2 filas por job
+
+10/2
+Parece que en el .imf están las salidas a buscar. Al final del documento con inicio "Output:Meter:MeterFileOnly".
+Nada conseguido. Modificando los outputs y/o el ".rvi" da los mismos resultados en "example1". Seguir buscando
+-------------------------------------------------------------------
+
+19/02
+
+Modificamos nuestro proyecto prueba 1. Obtenemos 7 outputs en SimResults, duplicadas para "menusalmente" o "run period".
+Parámetros: Tenemos 2 orientation y air.
+
+MODIFICANDO EL .MVI SE OBTIENEN LAS SALIDAS QUE ESTÁN AHÍ. PERO NO FILTRA SÓLO CONSIDERANDO ESO.
+Parece que la clave está entre el ".mvi" y el ".rvi" Dejar una sola variable en los 2.
+Probado y tampoco. Influyen parece en el pre o post proceso, pero no en el proceso.
+
+
+Descubierto que en el proceso influye EnergyPlus (8.1 es mi versión) 
+Que parecía que era algo automatizado y que me tenía que olvidar pero el SIGUIENTE PASO es:
+modificar los archivos del EnergyPlus indicados en el ".rvi" y en el ".mvi" para ver si ahora sí cambia, que debería.
+Leer InputOutputReference de "Documentation" --> "EnergyPlus".
+
+25/02
+No he tocado nada de EnergyPlus, hay que hacer caja negra. He reintentado y modificando el .imf ":variable" y se consigue.
+
+
+CUANDO ESTÉ CONSEGUIDO:
+
+Modificar ficheros jeplus obtener solo las 3 salidas que vienen en el documento me acaban de pasar.
+leer doc 3.3 que quiero hace con esas variables 
+Crear jobs aleatorios con los rangos a bruto 
+
+
+
+
